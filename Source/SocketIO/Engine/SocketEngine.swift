@@ -195,7 +195,7 @@ public final class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePoll
 
     private func handleBase64(message: String) {
         // binary in base64 string
-        let noPrefix = String(message[message.index(message.startIndex, offsetBy: 2)..<message.endIndex])
+        let noPrefix = String(message[message.index(message.startIndex, offsetBy: 2)..<message.endIndex])!
 
         if let data = Data(base64Encoded: noPrefix, options: .ignoreUnknownCharacters) {
             client?.parseEngineBinaryData(data)
@@ -669,9 +669,9 @@ public final class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePoll
 
     // Test Properties
 
-    func setConnected(_ value: Bool) {
-        connected = value
-    }
+//    func setConnected(_ value: Bool) {
+//        connected = value
+//    }
 }
 
 extension SocketEngine {
